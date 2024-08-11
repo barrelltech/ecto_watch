@@ -180,8 +180,8 @@ defmodule EctoWatch.WatcherServer do
       match?({_, :inserted}, identifier) && column == state.options.schema_definition.primary_key ->
         {:error, "Cannot subscribe to primary_key for inserted records"}
 
-      column && not MapSet.member?(state.identifier_columns, column) ->
-        {:error, "Column #{column} is not an association column"}
+#       column && not MapSet.member?(state.identifier_columns, column) ->
+#         {:error, "Column #{column} is not an association column"}
 
       column && column != state.options.schema_definition.primary_key &&
           column not in state.options.extra_columns ->
